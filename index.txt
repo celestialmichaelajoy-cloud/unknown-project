@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>23 Questions For You</title>
+    <style>
+        /* --- Aesthetic Styling --- */
+        :root {
+            --primary-color: #B584A2; /* Deep Rose/Mauve */
+            --secondary-color: #F8F4F2; /* Off-white for background */
+            --text-color: #4A4A4A;
+            /* Using a common system font for reliability, but Playfair Display is recommended */
+            --font-family: 'Georgia', serif; 
+        }
+
+        /* Basic Setup and Background */
+        body {
+            font-family: var(--font-family);
+            background: linear-gradient(135deg, #FFF0F5 0%, #D8BFD8 100%); /* Light pink to lilac gradient */
+            color: var(--text-color);
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            overflow-x: hidden; /* Hide horizontal scrollbar */
+            scroll-behavior: smooth;
+        }
+
+        /* Full-Screen Card Layout */
+        .slide-container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            flex-shrink: 0; /* Prevents shrinking on overflow */
+            padding: 20px;
+        }
+
+        .card {
+            width: 90%;
+            max-width: 600px;
+            padding: 50px 30px;
+            background-color: rgba(255, 255, 255, 0.95); /* Slightly transparent white */
+            border-radius: 25px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            transition: transform 0.6s ease-out, opacity 0.6s ease-out;
+            border: 3px solid var(--primary-color);
+        }
+
+        /* Typography */
+        h1 {
+            color: var(--primary-color);
+            font-size: 3em;
+            margin-bottom: 0.5em;
+            letter-spacing: 1px;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            font-size: 2em;
+            margin-top: 0;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        /* Button Styling */
+        .btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 15px 35px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1.2em;
+            letter-spacing: 0.5px;
+            margin-top: 20px;
+            transition: background-color 0.3s, transform 0.3s;
+            box-shadow: 0 5px 15px rgba(181, 132, 162, 0.6);
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            background-color: #9D6E8C; /* Darker on hover */
+            transform: translateY(-3px);
+        }
+
+        /* Long Message Specifics */
+        #long-message p {
+            font-size: 1em;
+            text-align: justify;
+            white-space: pre-wrap;
+        }
+        
+        .long-message-card {
+            max-height: 80vh; /* Contain the large text */
+            overflow-y: auto;
+            text-align: left;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div id="slides-wrapper">
+
+        <div class="slide-container" id="slide-0">
+            <div class="card">
+                <h1>A Challenge for You</h1>
+                <p>
+                    I have a very important question to ask, but before I get there, I want to take you through a rapid-fire sequence of 23 questions. Think of it as a final, exciting journey into our connection.
+                </p>
+                <button class="btn" onclick="goToSlide(1)">Start the Challenge (1/23)</button>
+            </div>
+        </div>
+
+        <div class="slide-container" id="slide-1">
+            <div class="card">
+                <h2>Question 1/23</h2>
+                <p>What is the *simplest* thing I do that instantly makes you happy?</p>
+                <button class="btn" onclick="goToSlide(2)">Next Question (2/23)</button>
+            </div>
+        </div>
+
+        <div class="slide-container" id="slide-2">
+            <div class="card">
+                <h2>Question 2/23</h2>
+                <p>If we could visit any fictional world together, where would we go?</p>
+                <button class="btn" onclick="goToSlide(3)">Next Question (3/23)</button>
+            </div>
+        </div>
+
+        <div class="slide-container" id="slide-3">
+            <div class="card">
+                <h2>Question 3/23</h2>
+                <p>What is one dream you told me about that you are most determined to achieve?</p>
+                <button class="btn" onclick="goToSlide(4)">Next Question (4/23)</button>
+            </div>
+        </div>
+
+        <div class="slide-container" id="slide-4">
+            <div class="card">
+                <h2>Question 4/23</h2>
+                <p>What is your favorite memory of our *last semester* together?</p>
+                <button class="btn" onclick="goToSlide(5)">Next Question (5/23)</button>
+            </div>
+        </div>
+
+        <div class="slide-container" id="slide-5">
+            <div class="card">
+                <h2>Question 5/23</h2>
+                <p>If you could be famous for one obscure talent, what would it be?</p>
+                <button class="btn" onclick="goToSlide(6)">Next Question (6/23)</button>
+            </div>
+        </div>
+
+        <div class="slide-container" id="slide-6">
+            <div class="card">
+                <h2>Question 6/23</h2>
+                <p>What’s one thing you are completely uncompromising about?</p>
+                <button class="btn" onclick="goToSlide(7)">Next Question (7/23)</button>
+            </div>
+        </div>
+
+        <div class="slide-container" id="slide-7">
+            <div class="card">
+                <h2>Question 7/23</h2>
+                <p>What's a piece of advice I gave you that actually stuck?</p>
+                <button class="btn" onclick="goToSlide(8)">Next Question (8/23)</button>
+            </div>
+        </div>
+
+        <div class="slide-container" id="slide-8">
+            <div class="card">
+                <h2>Question 8/23</h2>
+                <p>If our conversations had a theme song, what would it be?</p>
+                <button class="btn" onclick="goToSlide(9)">Next Question (9/23)</button>
+            </div>
+        </div>
+
+        <div class="slide-container" id="slide-9">
+            <div class="card">
+                <h2>Question 9/23</h2>
+                <p>What is your favorite late-night snack when you are up talking to me?</p>
+                <button class="btn" onclick="goToSlide(10)">Next Question (10/23)</button>
+            </div>
+        </div>
+
+        <div class="slide-container" id="slide-10">
+            <div class="card">
+                <h2>Question 10/23</h2>
+                <p>What’s one thing you’ve learned about yourself since October 9th?</p>
+                <button class="btn" onclick="goToSlide(11)">Next Question (11/23)</button>
+            </div>
+        </div>
+
+        <div class="slide-container" id="slide-11">
+            <div class="card">
+                <h2>Question 11/23</h2>
+                <p>If you had to describe our bond in three words, what would they be?</p>
+                <button class="btn" onclick="goToSlide(12)">Next Question (12/23)</button>
+            </div>
+        </div>
+
+        <div class="slide-container" id="slide-12">
+            <div class="card">
+                <h2>Question 12/23</h2>
+                <p>What is a small, quiet moment you enjoyed recently?</p>
+                <button class="btn" onclick="goToSlide(13)">Next Question (13/23)</button>
+            </div>
+        </div>
+
+        <div class="slide-container" id="slide-13">
+            <div class="card">
+                <h2>Question 13/23</h2>
+                <p>What's the best advice you've ever ignored?</p>
+                <button class="btn" onclick="goToSlide(14)">Next Question (14/23)</button>
+            </div>
+        </div>
+
+        <div class="slide-container" id="slide-14">
+            <div class="card">
+                <h2>Question 14/23</h2>
+                <p>Where is the first place we should travel when we can meet?</p>
+                <button class="btn" onclick="goToSlide(15)">Next Question (15/23)</button>
+            </div>
+        </div>
+
+        <div class="slide-container" id="slide-15">
+            <div class="card">
+                <h2>Question 15/23</h2>
+                <p>What is your favorite kind of weather and why?</p>
+                <button class="btn" onclick="goToSlide(16)">Next Question (16/23)</button>
+            </div>
+        </div>
+
+        <div class="slide-container" id="slide-16">
+            <div class="card">
+                <h2>Question 16/23</h2>
+                <p>What book or movie defines your sense of humor?</p>
+                <button class="btn" onclick="goToSlide(17)">Next Question (17/23)</button>
+            </div>
+        </div>
+
+        <div class="slide-container" id="slide-17">
+            <div class="card">
+                <h2>Question 17/23</h2>
+                <p>What’s one thing about your future you are completely certain of?</p>
+                <button class="btn" onclick="goToSlide(18)">Next Question (18/23)</button>
+            </div>
+        </div>
+
+        <div class="slide-container" id="slide-18">
+            <div class="card">
+                <h2>Question 18/23</h2>
+                <p>What is something you wish I understood better about you?</p>
+                <button class="btn" onclick="goToSlide(19)">Next Question (19/23)</button>
+            </div>
+        </div>
+
+        <div class="slide-container" id="slide-19">
+            <div class="card">
+                <h2>Question 19/23</h2>
+                <p>What is the most beautiful sound to your ears?</p>
+                <button class="btn" onclick="goToSlide(20)">Next Question (20/23)</button>
+            </div>
+        </div>
+
+        <div class="slide-container" id="slide-20">
+            <div class="card">
+                <h2>Question 20/23</h2>
+                <p>What is a small detail about me that you remember clearly?</p>
+                <button class="btn" onclick="goToSlide(21)">Next Question (21/23)</button>
+            </div>
+        </div>
+
+        <div class="slide-container" id="slide-21">
+            <div class="card">
+                <h2>Question 21/23</h2>
+                <p>What do you value most in our ability to be honest with each other?</p>
+                <button class="btn" onclick="goToSlide(22)">Next Question (22/23)</button>
+            </div>
+        </div>
+
+        <div class="slide-container" id="slide-22">
+            <div class="card">
+                <h2>Question 22/23</h2>
+                <p>What does 'home' feel like to you?</p>
+                <button class="btn" onclick="goToSlide(23)">Next Question (23/23)</button>
+            </div>
+        </div>
+
+        <div class="slide-container" id="slide-23">
+            <div class="card">
+                <h2>Question 23/23</h2>
+                <p>If you could send a one-sentence message to your future self right now, what would it be?</p>
+                <button class="btn" onclick="goToSlide(24)">Ready for the Main Question</button>
+            </div>
+        </div>
+
+        <div class="slide-container" id="slide-24">
+            <div class="card">
+                <h1>The Core Question</h1>
+                <p>
+                    Thank you for sharing your heart through all those questions. Knowing everything we've built, I ask you this:
+                </p>
+                <p style="font-size: 1.5em; font-weight: bold; color: var(--primary-color);">
+                    **Will you allow me to court you, to intentionally pursue a relationship and see if we can turn this incredible friendship into my last great risk?**
+                </p>
+                <button class="btn" onclick="goToSlide(25)">Read My Full Commitment</button>
+            </div>
+        </div>
+
+        <div class="slide-container long-message-card" id="slide-25">
+            <div class="card long-message-card">
+                <h1 style="border-bottom: 2px dashed var(--primary-color); padding-bottom: 15px;">My Full Commitment</h1>
+                <div id="long-message">
+                    <p>
+                        this decision to ask you to be my girlfriend is not a sudden one, even though we only met online. it is the most serious and sincere choice i have made in a long time. for almost a year, our friendship has built a foundation that feels incredibly real and honest, despite the distance between us. we didn't waste time on small talk; we quickly reached a point where i could truly be myself. you have seen all sides of me—my lighthearted moments, my stress, and my genuine feelings—and you have accepted it all. this deep trust we share is something i value more than anything, and it makes our bond feel stronger than many relationships that start in person. our friendship alone is genuinely enough to make me happy, but since we learned our feelings were mutual, i know we have something rare that we must build upon.
+
+                        when i confessed my feelings to you on october 9th, i was prepared for you to say no, which would have been heartbreaking. finding out you felt the same way was an amazing moment. it also made me realize i need to be serious and careful. since that day, our conversations have only gone deeper. they've confirmed that you are truly the person i want to commit to. i am not trying to rush this; i want to respect the time and effort we've already put into building this connection. but i need you to know that i am absolutely serious about you. my feelings are real, my intentions are solid, and the distance does not change the fact that i am ready to commit.
+
+                        you are the final, big step i want to take. i don't want to keep looking for other people or waste time on anyone else. you are the one i choose. i want to take the trust and closeness we built as friends and formally make you my girlfriend. i am committing to put in all the work necessary to make this relationship strong and lasting, regardless of the challenges that come with an online start. you are my last risk because i believe you are worth everything. i am asking you to be my girlfriend because i see a future with you, and i am ready to be your truly devoted partner.
+                    </p>
+                </div>
+                <hr style="border-color: var(--primary-color); margin: 30px 0;">
+                <p style="font-size: 1.5em; font-weight: bold; color: #555;">
+                    Now that you know my full heart, let's talk.
+                </p>
+                <p style="font-size: 1.8em; font-weight: bold; color: var(--primary-color);">
+                    **Will you be my girlfriend?**
+                </p>
+                <p style="font-size: 0.9em; color: #777; margin-top: 10px;">
+                    (I'm here, ready for your answer when you are.)
+                </p>
+            </div>
+        </div>
+
+
+    </div>
+
+    <script>
+        // --- JavaScript for Smooth "Swipe" Transition ---
+        const totalSlides = 26; // 0 to 25
+        let currentSlide = 0;
+
+        function goToSlide(index) {
+            if (index >= 0 && index < totalSlides) {
+                currentSlide = index;
+                const slidesWrapper = document.getElementById('slides-wrapper');
+                // Calculate the vertical scroll position (simulate 'swipe down')
+                const scrollY = index * window.innerHeight;
+                
+                // Animate the scroll
+                window.scrollTo({
+                    top: scrollY,
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        // This function attempts to keep the user locked to the current slide
+        window.addEventListener('scroll', () => {
+            const scrollIndex = Math.round(window.scrollY / window.innerHeight);
+            if (scrollIndex !== currentSlide) {
+                 window.scrollTo({
+                    top: currentSlide * window.innerHeight,
+                    behavior: 'auto'
+                });
+            }
+        });
+        
+    </script>
+</body>
+</html>
